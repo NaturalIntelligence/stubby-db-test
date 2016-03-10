@@ -2,7 +2,7 @@
 This is the test repository to test stubby-db features
 
 # Steps
-Install stubby-db from git URL (use http url instead of ssh url)
+1. Install stubby-db from git URL (use http url instead of ssh url)
 
 ```bash
 npm install https://github.com/NaturalIntelligence/StubbyDB.git --save
@@ -18,10 +18,10 @@ git maintains the npm package history.
 
 Check index.js and config.json for how to use stubby-db.
 
-To start the server
+2. Start the server
 
 node index.js
 
-To test
+3. Open the same repository in another shell window and use following command to test it.
 
 node tests/test.js
