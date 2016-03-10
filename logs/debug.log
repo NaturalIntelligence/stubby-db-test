@@ -1,0 +1,71 @@
+2016-03-10T07:21:47.524Z - info: GET: /stubs/healthcheck
+2016-03-10T07:21:47.525Z - info: Matching request Config: {"url":"/stubs/healthcheck","method":"GET"}
+2016-03-10T07:21:47.545Z - info: GET: /stubs/body
+2016-03-10T07:21:47.545Z - info: Matching request Config: {"url":"/stubs/body","method":"GET"}
+2016-03-10T07:21:47.552Z - info: GET: /stubs/simple
+2016-03-10T07:21:47.555Z - info: Matching request Config: {"url":"/stubs/simple","method":"GET"}
+2016-03-10T07:21:47.557Z - info: Reading from ./responses/simple.xml
+2016-03-10T07:21:47.560Z - info: GET: /stubs/not-found
+2016-03-10T07:21:47.561Z - info: Matching request Config: {"url":"/stubs/not-found","method":"GET"}
+2016-03-10T07:21:47.561Z - error:  Error: ENOENT: no such file or directory, access './responses/notexist.xml'
+    at Error (native)
+    at Object.fs.accessSync (fs.js:208:11)
+    at Object.exports.readResponse (/home/user/spikes/stubbyDB-test/node_modules/stubby-db/js/response_handler.js:39:12)
+    at IncomingMessage.<anonymous> (/home/user/spikes/stubbyDB-test/node_modules/stubby-db/js/stubbyDB.js:51:15)
+    at emitNone (events.js:68:13)
+    at IncomingMessage.emit (events.js:167:7)
+    at endReadableNT (_stream_readable.js:906:12)
+    at nextTickCallbackWith2Args (node.js:455:9)
+    at process._tickCallback (node.js:369:17)
+2016-03-10T07:21:47.565Z - info: Reading from ./responses/simple.xml
+2016-03-10T07:21:47.567Z - info: GET: /stubs/random
+2016-03-10T07:21:47.567Z - info: Matching request Config: {"url":"/stubs/random","method":"GET"}
+2016-03-10T07:21:47.568Z - info: Reading from ./responses/file2.xml
+2016-03-10T07:21:47.569Z - info: GET: /stubs/round-robin
+2016-03-10T07:21:47.569Z - info: Matching request Config: {"url":"/stubs/round-robin","method":"GET"}
+2016-03-10T07:21:47.569Z - info: Reading from ./responses/file1.xml
+2016-03-10T07:21:47.572Z - info: GET: /stubs/phone-2563
+2016-03-10T07:21:47.572Z - info: Matching request Config: {"url":"/stubs/phone-([0-9]+)","method":"GET"}
+2016-03-10T07:21:47.572Z - info: Reading from ./responses/phone.xml
+2016-03-10T07:21:47.574Z - info: GET: /stubs/markers
+2016-03-10T07:21:47.574Z - info: Matching request Config: {"url":"/stubs/markers","method":"GET"}
+2016-03-10T07:21:47.575Z - info: Reading from ./responses/markers.xml
+2016-03-10T07:21:47.582Z - info: GET: /stubs/dynamic-filename/2
+2016-03-10T07:21:47.582Z - info: Matching request Config: {"url":"/stubs/dynamic-filename/([0-9])","method":"GET"}
+2016-03-10T07:21:47.584Z - info: Reading from ./responses/file2.xml
+2016-03-10T07:21:47.588Z - info: GET: /stubs/dynamic-filename/9
+2016-03-10T07:21:47.588Z - info: Matching request Config: {"url":"/stubs/dynamic-filename/([0-9])","method":"GET"}
+2016-03-10T07:21:47.591Z - info: GET: /stubs/500
+2016-03-10T07:21:47.591Z - info: Matching request Config: {"url":"/stubs/500","method":"GET"}
+2016-03-10T07:21:47.594Z - info: POST: /stubs/simple
+2016-03-10T07:21:47.594Z - info: Matching request Config: {"method":"POST","url":"/stubs/simple","post":"Hello ([a-zA-Z]+) ([a-zA-Z]+)!! Your number is ((\\+[0-9]{2}) ([0-9]+))"}
+2016-03-10T07:21:47.595Z - info: Reading from ./responses/post.xml
+2016-03-10T07:21:47.597Z - info: GET: /stubs/header
+2016-03-10T07:21:47.597Z - info: Matching request Config: {"url":"/stubs/header","headers":{"custom":"Custom"},"method":"GET"}
+2016-03-10T07:21:47.597Z - info: Reading from ./responses/simple.xml
+2016-03-10T07:21:47.599Z - info: GET: /stubs/dumps
+2016-03-10T07:21:47.599Z - info: Matching request Config: {"url":"/stubs/dumps","method":"GET"}
+2016-03-10T07:21:47.600Z - info: Reading from ./responses/dumps.txt
+2016-03-10T07:21:47.600Z - info: Reading from dumps/foo/1
+2016-03-10T07:21:47.603Z - info: Reading from dumps/foo/2
+2016-03-10T07:21:47.603Z - info: Reading from dumps/foo/1
+2016-03-10T07:21:47.603Z - info: Reading from dumps/foo/2
+2016-03-10T07:21:47.606Z - info: GET: /stubs/datasets/001
+2016-03-10T07:21:47.606Z - info: Matching request Config: {"url":"/stubs/datasets/([0-9]+)","method":"GET"}
+2016-03-10T07:21:47.607Z - info: Reading from ./responses/datasets.txt
+2016-03-10T07:21:47.614Z - info: GET: /stubs/datasets/002
+2016-03-10T07:21:47.615Z - info: Matching request Config: {"url":"/stubs/datasets/([0-9]+)","method":"GET"}
+2016-03-10T07:21:47.615Z - info: Reading from ./responses/datasets.txt
+2016-03-10T07:21:47.621Z - info: POST: /stubs/mix
+2016-03-10T07:21:47.621Z - info: Matching request Config: {"url":"/stubs/mix","post":"Hello ([a-zA-Z]+)!!","method":"POST"}
+2016-03-10T07:21:47.622Z - info: Reading from ./responses/mix.txt
+2016-03-10T07:21:47.622Z - info: Reading from dumps/foo/1
+2016-03-10T07:21:47.622Z - info: Reading from dumps/foo/2
+2016-03-10T07:21:47.624Z - info: POST: /stubs/post2
+2016-03-10T07:21:47.624Z - info: Matching request Config: {"method":"POST","url":"/stubs/post2","post":"Mobile=([0-9]+)"}
+2016-03-10T07:21:47.626Z - info: POST: /stubs/post3
+2016-03-10T07:21:47.627Z - info: Matching request Config: {"method":"POST","url":"/stubs/post3","post":"([0-9]+)"}
+2016-03-10T07:21:47.629Z - info: POST: /stubs/post4
+2016-03-10T07:21:47.629Z - info: Matching request Config: {"method":"POST","url":"/stubs/post4","post":"=([0-9]+)"}
+2016-03-10T07:21:47.631Z - info: POST: /stubs/post5
+2016-03-10T07:21:47.631Z - info: Matching request Config: {"method":"POST","url":"/stubs/post5","post":"[\\s\\S]*Mobile=([0-9]+)[\\s\\S]*"}

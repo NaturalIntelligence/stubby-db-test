@@ -1,0 +1,17 @@
+{
+  "name": "stubby-db-test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "stubby-db": "git+https://github.com/NaturalIntelligence/StubbyDB.git"
+  },
+  "version": "1.0.0",
+  "directories": {
+    "test": "tests"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
