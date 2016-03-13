@@ -1,3 +1,5 @@
-var stubbyDB = require('stubby-db');
+var stubbyDB = require('stubby-db').stubbyDB;
 
-stubbyDB.start();
+var stubby_db = new stubbyDB(7788);
+stubby_db.start();
+
