@@ -1,17 +1,14 @@
 {
   "name": "stubby-db-test",
-  "main": "index.js",
+  "main": "tests/test.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "dependencies": {
-    "stubby-db": "git+https://github.com/NaturalIntelligence/StubbyDB.git"
+    "test": "tests/test.js"
   },
   "version": "1.0.0",
   "directories": {
     "test": "tests"
   },
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "author": "Amit Gupta",
+  "license": "MIT",
+  "description": "This is the demo and test repository to test stubbydb"
 }
