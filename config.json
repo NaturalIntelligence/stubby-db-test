@@ -11,7 +11,7 @@
         "status": 200
       }
     },
-    "requests": ["mappings/response.yaml", "mappings/strategy.yaml", "mappings/post.yaml"]
+    "requests": ["mappings/response.yaml", "mappings/strategy.yaml", "mappings/post.yaml", "mappings/dbset.yaml", "mappings/dbset2.yaml"]
   },
   "server": {
     "port": 9999
