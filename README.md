@@ -18,9 +18,7 @@ This is the demo repository to test stubby-db features
 	
 	**Note**: You may have to run above commands with sudo access.
 
-2. Create a project with config.json or create the project with desire directory structure, whichever way works for you.
-
-3. Clone this repository to some folder (stubby-db-test) and mention the path in below command
+2. Clone this repository to some folder (stubby-db-test) and mention the path in below command
 
 		stubbydb -d stubby-db-test -p 9999
 
@@ -32,6 +30,6 @@ This is the demo repository to test stubby-db features
 
 		stubbydb --help
 
-4. Now since everything is setup and stubbydb is started, open this repository in another shell window and use following command to test it.
+3. Now since everything is setup and stubbydb is started, open this repository in another shell window and use following command to test it.
 
 		node tests/test.js
