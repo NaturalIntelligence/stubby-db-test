@@ -1,3 +1,4 @@
+var https = require('https');
 var http = require('http');
 var chalk = require('chalk');
 var deasync = require('deasync');
@@ -12,6 +13,8 @@ var futuredt = new Date();
 	futuredt.setFullYear(today.getFullYear() + 1);
 	futuredt.setMonth(today.getMonth() - 2);
 	futuredt.setDate(today.getDate() + 3);
+
+
 
 testData = [
 		//1. short notaion
@@ -64,7 +67,7 @@ testData = [
 		//24. dbset: serve the response if key is found
 			,{request:{path:'/stubs/admin/003/1'}, response:{ body: "<auth_id>nk002834-oknkjn-098nkjn</auth_id>"}}
 		//25 dbset: 404 if key is not found
-			,{request:{path:'/stubs/admin/005/1'}, response:{ status: 404 }}
+			,{request:{path:'/stubs/admin/005/1'}, response:{ status: 500, body: "Error: Key:  not found in admin" }}
 		//26 dbset: serve the response from file if key is not found
 			,{request:{path:'/stubs/admin/005/2'}, response:{ body: '<fault>We are currently experiencing some server issues. Try again later...</fault>'}}
 		//27 dbset: serve response against any random key
@@ -131,6 +134,44 @@ for (var i = 0; i<testData.length; i++) {
 
 	deasync.loopWhile(function(){return !testState;});
 }
+
+console.log("Testing tests on HTTPS")
+
+for (var i = 0; i<testData.length; i++) {
+	var test = testData[i];
+	var options = {host: "localhost", port: 8000, method: 'GET'};
+	options['path'] = test.request.path;
+	if(test.request.headers){
+		options['headers'] = test.request.headers;
+	}
+	if(test.request.method){
+		options['method'] = test.request.method;	
+	}
+	
+	var testState = false;
+	process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
+
+	var req = https.request(options, function(response){
+		var str = ''
+		response.on('data', function (chunk) {
+			str += chunk;
+		});
+
+		response.on('end', function () {
+			response['body'] = str;
+			validate(response,test.response, i+1);
+			testState = true;
+		});
+	});
+
+	if(test.request.post){
+		req.write(test.request.post);	
+	}
+	req.end();
+
+	deasync.loopWhile(function(){return !testState;});
+}
+
 
 
 
