@@ -14,7 +14,8 @@
     "requests": ["mappings/response.yaml", "mappings/strategy.yaml", "mappings/post.yaml", "mappings/dbset.yaml", "mappings/dbset2.yaml"]
   },
   "server": {
-    "port": 9999
+    "port": 9999,
+    "securePort" : 8080
   },
   "stubs": "stubs/",
   "logs": {
