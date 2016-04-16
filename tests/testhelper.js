@@ -1,5 +1,3 @@
-var https = require('https');
-var http = require('http');
 var chalk = require('chalk');
 var deasync = require('deasync');
 
@@ -24,21 +22,28 @@ function validate(actual_res, expected_res, testNumber){
 	}
 }
 
-exports.run = function(testData){
+exports.run = function(testData,protocol,options){
 	
 	for (var i = 0; i<testData.length; i++) {
 		var test = testData[i];
-		var options = {host: "localhost", port: 9999, method: 'GET'};
+		//var options = {host: "localhost", port: 9999, method: 'GET'};
 		options['path'] = test.request.path;
 		if(test.request.headers){
 			options['headers'] = test.request.headers;
 		}
+
 		if(test.request.method){
 			options['method'] = test.request.method;	
+		}else{
+			options['method'] = 'GET';
+		}
+
+		if(!options['host']){
+			options['host'] = 'localhost';	
 		}
 		
 		var testState = false;
-		var req = http.request(options, function(response){
+		var req = protocol.request(options, function(response){
 			var str = ''
 			response.on('data', function (chunk) {
 				str += chunk;
