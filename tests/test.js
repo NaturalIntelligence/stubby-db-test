@@ -9,13 +9,25 @@ var spawn = require('child_process').spawn;
 
 
 //Build own configuration
+//Remove logs file
 run("stubbydb -d " + testProjDir + " -p 9999 --logs");
-//Build configuration from config.json
-run("stubbydb -d " + testProjDir + " -c config.json --logs");
+//check if logs file presents
+//check if the size of exceptions.log is 0
+
+//Build configuration from config.json and check if it runs on diffferent host
+//Remove logs folder
+run("stubbydb -d " + testProjDir + " -c config.json --host 127.0.0.1 --logs ");
+//check if logs folder with logs file is created
+//check if the size of exceptions.log is 0
+
 //Build own configuration
 run("stubbydb -d .. -p 9999 --logs");
+//check if the size of exceptions.log is 0
+
 //Build configuration from config.json
 run("stubbydb -d .. -c config.json --logs");
+//check if the size of exceptions.log is 0
+
 stopStubbyDB();
 
 function run(cmd){

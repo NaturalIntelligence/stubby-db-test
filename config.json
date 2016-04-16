@@ -14,8 +14,12 @@
     "requests": ["mappings/response.yaml", "mappings/strategy.yaml", "mappings/post.yaml", "mappings/dbset.yaml", "mappings/dbset2.yaml"]
   },
   "server": {
-    "port": 9999,
-    "securePort" : 8080
+    "port": 9999
+    ,"securePort" : 8000
+    ,"mutualSSL" : true
+    ,"ca" : ["truststore/ca/stubbydb-ca.crt"]
+    ,"key" : "truststore/server.key"
+    ,"cert" : "truststore/server.crt"
   },
   "stubs": "stubs/",
   "logs": {
