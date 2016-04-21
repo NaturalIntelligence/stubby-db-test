@@ -14,16 +14,13 @@
     "requests": ["mappings/response.yaml", "mappings/strategy.yaml", "mappings/post.yaml", "mappings/dbset.yaml", "mappings/dbset2.yaml"]
   },
   "server": {
-    "port": 9999
-    ,"securePort" : 8000
-    ,"mutualSSL" : true
+    "port": 1234
+    ,"securePort" : 1234
+    ,"mutualSSL" : "wrong"
     ,"ca" : ["truststore/ca/ca.crt"]
     ,"key" : "truststore/server.key"
     ,"cert" : "truststore/server.crt"
   },
-  "stubs": "stubs/",
-  "logs": {
-    "path": "logs/"
-  },
+  "stubs": "stubs2/",
   "dumps": "dumps/"
 }

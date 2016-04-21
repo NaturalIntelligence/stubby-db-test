@@ -1,5 +1,6 @@
 var chalk = require('chalk');
 var deasync = require('deasync');
+var zlib = require('zlib');
 
 function validate(actual_res, expected_res, testNumber){
 	var result = false;
@@ -17,7 +18,7 @@ function validate(actual_res, expected_res, testNumber){
 		console.log(chalk.green('Test ' + testNumber + " PASS"));
 	}else{
 		console.log(actual_res.body);
-		console.log(expected_res.body);
+		console.log(expected_res);
 		console.log(chalk.red('Test ' + testNumber + " Fails"));
 	}
 }
@@ -29,7 +30,12 @@ exports.run = function(testData,protocol,options){
 		//var options = {host: "localhost", port: 9999, method: 'GET'};
 		options['path'] = test.request.path;
 		if(test.request.headers){
-			options['headers'] = test.request.headers;
+			if(!options['headers']){
+				options['headers'] = {}
+			}
+			for(header in test.request.headers){
+				options['headers'][header] = test.request.headers[header];
+			}
 		}
 
 		if(test.request.method){
@@ -45,15 +51,39 @@ exports.run = function(testData,protocol,options){
 		var testState = false;
 		var req = protocol.request(options, function(response){
 			var str = ''
-			response.on('data', function (chunk) {
-				str += chunk;
-			});
 
-			response.on('end', function () {
-				response['body'] = str;
-				validate(response,test.response, i+1);
-				testState = true;
-			});
+			if(response.headers['content-encoding']){
+				var uncompressor;
+				if(response.headers['content-encoding'].indexOf('gzip') > -1){
+					uncompressor = zlib.createGunzip();
+				}else if(response.headers['content-encoding'].indexOf('deflate') > -1){
+					uncompressor = zlib.createInflate();
+				}
+				var payload = "";
+
+			    uncompressor.on('data', function(data){
+			        payload += data.toString();
+			    });
+
+			    uncompressor.on('end', function(){
+			    	response['body'] = payload;
+			        validate(response,test.response, i+1);
+					testState = true;
+			    });
+
+			    response.pipe(uncompressor);
+			}else{
+				response.on('data', function (chunk) {
+					str += chunk;
+				});
+
+				response.on('end', function () {
+					response['body'] = str;
+					validate(response,test.response, i+1);
+					testState = true;
+				});	
+			}
+
 		});
 
 		if(test.request.post){
