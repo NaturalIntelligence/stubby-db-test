@@ -4,7 +4,7 @@
 
    response:
       strategy: first-found
-      files: ["notexist.xml","simple.xml"]
+      files: ["notexist.xml",{"name":"simple.xml","status":500}]
 
 #DONE
 -  request:
@@ -12,7 +12,7 @@
 
    response:
       strategy: random
-      files: ["file1.xml","file2.xml","file3.xml"]
+      files: ["file1.xml",{"name":"file2.xml","status":200},"file3.xml"]
 
 #DONE
 -  request:
@@ -20,4 +20,4 @@
 
    response:
       strategy: round-robin
-      files: ["file1.xml","file2.xml","file3.xml"]
+      files: ["file1.xml",{"name":"file2.xml","status":200},"file3.xml"]
