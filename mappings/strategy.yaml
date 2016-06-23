@@ -4,7 +4,7 @@
 
    response:
       strategy: first-found
-      files: ["notexist.xml",{"name":"simple.xml","status":500}]
+      files: ["notexist.xml",{"name":"simple.xml","status":200}]
 
 #DONE
 -  request:

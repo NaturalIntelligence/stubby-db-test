@@ -1,0 +1,27 @@
+#DONE
+-  request:
+      url: /stubs/attachment
+
+   response:
+      file: "simple.xml"
+      contentType: application/xml
+
+#DONE
+-  request:
+      url: /stubs/not-found/attachment
+
+   response:
+      strategy: first-found
+      files: ["notexist.xml",{"name":"simple.xml","status":200}]
+      contentType: application/xml
+
+
+#DONE
+-  request:
+      url: /stubs/pdf
+
+   response:
+      file: "StubbyDB_README.pdf"
+      contentType: application/pdf
+
+      
