@@ -27,7 +27,7 @@ exports.testData = [
 			{request:{path:'/stubs/phone-2563'}, response:{ body:'phoine number = 2563'}},
 		//8. markers
 			{request:{path:'/stubs/markers'}, 
-				response:{ body:'Today is '+ util.formatDate(today,'yyyy-mm-dd')+'. And the url is https://www.google.co.uk/?gws_rd=ssl#safe=strict&q=blah%20blah. Tomorrow would be '+ util.formatDate(tomorrow,'yyyy-mm-dd')+'. And yesterday it was '+ util.formatDate(yesterday,'yyyy-mm-dd')+'. Other url https://www.google.co.uk/?gws_rd=ssl#safe=strict&q=ola%20ola.'}},
+				response:{ body:'Today is '+ util.formatDate(today,'yyyy-dd-MM')+'. And the url is https://www.google.co.uk/?gws_rd=ssl#safe=strict&q=blah%20blah. Tomorrow would be '+ util.formatDate(tomorrow,'yyyy-dd-MM')+'. And yesterday it was '+ util.formatDate(yesterday,'yyyy-dd-MM')+'. Other url https://www.google.co.uk/?gws_rd=ssl#safe=strict&q=ola%20ola.\n\n'+util.formatDate(today,"dd D, MMM YYYY HH:mm:ss")}},
 		//9. request URL match in file name
 			{request:{path:'/stubs/dynamic-filename/2'}, response:{ body:'file 2'}},
 		//10. request URL match file not found
@@ -45,9 +45,9 @@ exports.testData = [
 		//16. 
 			{request:{path:'/stubs/datasets/002'}, response:{ body: 'My name is Nilesh. My Employee ID is 002. Somehow I earn 9000000000'}}
 		//17. 
-			,{request:{path:'/stubs/mix', method:'POST', post:'Hello Amit!!'}, response:{ body: 'Amit\nSome text in this file.\ndumps included here from given datasets\ndumps 1dumps 2\nmarkers from data set: '+ util.formatDate(today,'yyyy-mm-dd')+'\n and some footer.'}}
+			,{request:{path:'/stubs/mix', method:'POST', post:'Hello Amit!!'}, response:{ body: 'Amit\nSome text in this file.\ndumps included here from given datasets\ndumps 1dumps 2\nmarkers from data set: '+ util.formatDate(today,'yyyy-dd-MM')+'\n and some footer.'}}
 		//18. 	
-			,{request:{path:'/stubs/mix2', method:'POST', post:'Hello Amit!!'}, response:{ body: 'Amit\nSome text in this file.\ndumps included here from given datasets\n\nmarkers from data set: '+ util.formatDate(futuredt,'yyyy-mm-dd')+'\n and some footer.'}}
+			,{request:{path:'/stubs/mix2', method:'POST', post:'Hello Amit!!'}, response:{ body: 'Amit\nSome text in this file.\ndumps included here from given datasets\n\nmarkers from data set: '+ util.formatDate(futuredt,'yyyy-dd-MM')+'\n and some footer.'}}
 		//19. 
 			,{request:{path:'/stubs/post2', method:'POST', post:'name=Amit&Mobile=781011111&Sal=100000.00&DOJ=25-APR-2012'}, response:{ body: 'Mobile=781011111,781011111,<% post.2 %>'}}
 		//20. 

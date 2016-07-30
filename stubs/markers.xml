@@ -1,1 +1,3 @@
-Today is {{TODAY}}. And the url is {{URL:https://www.google.co.uk/?gws_rd=ssl#safe=strict&q=blah blah}}. Tomorrow would be {{TODAY+1}}. And yesterday it was {{TODAY-1}}. Other url {{URL:https://www.google.co.uk/?gws_rd=ssl#safe=strict&q=ola ola}}.
+Today is {{formatDate(TODAY,"yyyy-dd-MM")}}. And the url is {{URL:https://www.google.co.uk/?gws_rd=ssl#safe=strict&q=blah blah}}. Tomorrow would be {{formatDate(TODAY+1,"yyyy-dd-MM")}}. And yesterday it was {{formatDate(TODAY-1,"yyyy-dd-MM")}}. Other url {{URL:https://www.google.co.uk/?gws_rd=ssl#safe=strict&q=ola ola}}.
+
+{{formatDate(TODAY,"dd D, MMM YYYY HH:mm:ss")}}
