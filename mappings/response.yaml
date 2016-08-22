@@ -45,6 +45,13 @@
       latency: 3000
       file: delay.xml
 
+-  request:
+      url: /stubs/delay3
+
+   response:
+      latency: [1000,2000]
+      file: delay.xml
+
 #DONE
 -  request:
       url: /stubs/500
