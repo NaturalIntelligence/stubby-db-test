@@ -1,3 +1,12 @@
 test if logs files are created on correct location
-test configuration part also
+test if debug.log is created and there is no exceptions
+
+test configuration
 test debug URLs
+test --help, --version options, unsupported argument support
+test https 
+test 2 way SSL handshaking
+test attachments
+
+
+?? how to extract CA cert information from server cert.

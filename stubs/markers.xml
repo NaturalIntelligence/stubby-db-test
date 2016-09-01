@@ -3,3 +3,10 @@ Today is {{formatDate(TODAY,"yyyy-dd-MM")}}. And the url is {{URL:https://www.go
 {{formatDate(TODAY,"dd D, MMM YYYY HH:mm:ss")}}
 {{random(4)}}
 {{random(5,'alpha_num')}}
+
+{{JODA_TODAY}}
+{{JODA_TODAY+3}}
+{{JODA_TODAY-3}}
+{{JODA_TODAY-3d+1m-2y}}
+{{formatDate(JODA_TODAY,"dd D, MMM YYYY HH:mm:ss")}}
+{{formatDate(JODA_TODAY,"yyyy-dd-MM")}}
