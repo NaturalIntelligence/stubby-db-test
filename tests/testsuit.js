@@ -31,7 +31,7 @@ exports.testData = [
 		//9. request URL match in file name
 			{request:{path:'/stubs/dynamic-filename/2'}, response:{ body:'file 2'}},
 		//10. request URL match file not found
-			{request:{path:'/stubs/dynamic-filename/9'}, response:{ status: 404}},
+			{request:{path:'/stubs/dynamic-filename/9'}, response:{ status: 500}},
 		//11. custom status code
 			{request:{path:'/stubs/500'}, response:{ status:500}},
 		//12. POST request. request POST match in file content
