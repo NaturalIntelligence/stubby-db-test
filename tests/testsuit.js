@@ -37,7 +37,7 @@ exports.testData = [
 		//12. POST request. request POST match in file content
 			{request:{path:'/stubs/simple', method: 'POST', post:'Hello Amit Gupta!! Your number is +44 7123456789'}, response:{ body:'My name is Amit Gupta. My mobile number is 07123456789.'}},
 		//13. 
-			{request:{path:'/stubs/header',headers: {'custom': 'Custom'}}, response:{ body:'Sample File contents'}},
+			{request:{path:'/stubs/header',headers: {'custom': 'Custom'}}, response:{ body:'N/A<% headers.1 %>'}},
 		//14. 
 			{request:{path:'/stubs/dumps'}, response:{ body: 'Some text in this file. dumps 1 dumps 2 and some footer. Some text in this file. dumps 1dumps 2 and some footer.'}},
 		//15. 
@@ -70,9 +70,16 @@ exports.testData = [
 			,{request:{path:'/stubs/admin/010/4'}, response:{ status : 200}}
 		//29 dbset: serve response if key is found otherwise skip and match further mapping. throw 404 if no further request matches
 			,{request:{path:'/stubs/admin/005/4'}, response:{ status : 404 }}
-		//30
-			
-		
+		//30 query: with query param. capture nothing
+			,{request:{path:'/stubs/query?id=12345&name=amit'}, response:{ body: 'with 2 query params. 12345, mit'}}
+		//31 query: with extra query param
+			,{request:{path:'/stubs/query?id=12345&extraname=amit'}, response:{ body: 'with 12345 only'}}
+		//32 query: with multi capturequery param
+			,{request:{path:'/stubs/query?static=amit&reg=guptaamit1&multireg=aname2'}, response:{ body: 'N/A|amit|name2|name|2|<% query.5 %>'}}
+		//33 header: single captured header
+			,{request:{path:'/stubs/header3', headers: {'custom' : 'amit1', 'extra': 'extra'}}, response:{ body: 'N/Aamit'}}
+		//34 header: multiple headers
+			,{request:{path:'/stubs/header4', headers: {'static':'amit','reg':'guptaamit1','multireg':'aname2','extra': 'extra'}}, response:{ body: 'N/A|amit|name2|name|2|<% headers.5 %>'}}
 			]
 
 

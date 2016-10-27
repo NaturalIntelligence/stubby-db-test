@@ -1,14 +1,29 @@
 #DONE
 -  request:
-      method: POST
-      url: /stubs/post/?id=2
-      post: Mobile=([0-9]+)
+      url: /stubs/query
       query:
         id: ([0-9]+)
-      #name=Amit&Mobile=781011111&Sal=100000.00&DOJ=25-APR-2012
+        name: a([a-z]+)
 
    response:
-      #Mobile=781011111,781011111,<% post.2 %>
-      body: <% post.0 %>,<% post.1 %>,<% post.2 %> <% query.1 %>
+      body: with 2 query params. <% query.1 %>, <% query.2 %>
 
+#DONE
+-  request:
+      url: /stubs/query
+      query:
+        id: ([0-9]+)
 
+   response:
+      body: with <% query.1 %> only
+
+#DONE
+-  request:
+      url: /stubs/query
+      query:
+        static: amit
+        reg: gupta([a-z]{4})[0-9]
+        multireg: a(([a-z]{4})([0-9]))
+
+   response:
+      body: <% query.0 %>|<% query.1 %>|<% query.2 %>|<% query.3 %>|<% query.4 %>|<% query.5 %>   

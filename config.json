@@ -16,7 +16,8 @@
                 , "mappings/post.yaml"
                 , "mappings/dbset.yaml"
                 , "mappings/dbset2.yaml"
-                , "mappings/attachment.yaml"]
+                , "mappings/attachment.yaml"
+                , "mappings/queryparam.yaml"]
   },
   "server": {
     "port": 9999
